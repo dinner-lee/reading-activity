@@ -24,6 +24,10 @@ export default function StudentView({
     text: string;
     coordinates: { x: number; y: number; width: number; height: number };
     pageNumber: number;
+    studentId: string;
+    studentName: string;
+    color: string;
+    opacity: number;
   }>>([]);
   const [selectedText, setSelectedText] = useState<string>('');
   const [showAnnotationModal, setShowAnnotationModal] = useState(false);
