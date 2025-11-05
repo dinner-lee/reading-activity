@@ -1,36 +1,153 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Reading Activity Platform
+
+A web application that allows teachers to track student reading progress through highlights and annotations on PDF documents.
+
+## Features
+
+### Teacher Dashboard
+- **Lesson Management**: Create, organize, and manage reading lessons in a hierarchical folder structure
+- **File Upload**: Support for PDF, DOCX, and TXT files with OCR capability
+- **Session Management**: Create and manage classroom sessions with shareable links
+- **Multiple View Modes**:
+  - **Text View**: Two-page view with student highlights and annotation counts
+  - **Annotation View**: Single-page view with detailed annotation panel
+  - **Student View**: Individual student progress tracking
+
+### Student Interface
+- **Interactive Reading**: Two-page PDF view for natural reading experience
+- **Text Highlighting**: Click and drag to highlight important text sections
+- **Annotation System**: Add comments and explanations for highlighted text
+- **Real-time Feedback**: Receive teacher feedback on annotations
+
+### Key Features
+- **Overlap Detection**: Automatically detects when multiple students highlight similar text (60% overlap threshold)
+- **Teacher Feedback**: Synchronous feedback system for immediate student guidance
+- **Student Interaction**: Optional feature to show other students' highlights and annotations
+- **Flexible Configuration**: Customizable reading guidance and help text
+
+## Technology Stack
+
+- **Frontend**: Next.js 16 with React 19
+- **Styling**: Tailwind CSS 4
+- **UI Components**: Lucide React icons, Radix UI components
+- **PDF Handling**: React-PDF with PDF.js
+- **TypeScript**: Full type safety throughout the application
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
 
+### Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd reading-activity-annotation
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Start the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-## Learn More
+## Usage
 
-To learn more about Next.js, take a look at the following resources:
+### For Teachers
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Create a Lesson**:
+   - Click "Create New" in the sidebar
+   - Upload a PDF/DOCX/TXT file
+   - Configure reading guidance and help text
+   - Set display preferences (student names, highlight counts)
+   - Enable/disable synchronous feedback and student interaction
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. **Manage Sessions**:
+   - Click on a lesson card to view details
+   - Create new sessions for different classes
+   - Start sessions to begin student participation
+   - View student view to test the interface
 
-## Deploy on Vercel
+3. **Monitor Progress**:
+   - Use Text View to see all highlights on the document
+   - Switch to Annotation View for detailed feedback
+   - Use Student View to track individual progress
+   - Provide feedback on student annotations
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### For Students
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Access Reading Material**:
+   - Use the shareable link provided by the teacher
+   - Navigate through pages using the controls
+   - Read the reading guidance in the top-left corner
+
+2. **Highlight and Annotate**:
+   - Click and drag to select text for highlighting
+   - Add annotations explaining why the text is important
+   - Submit annotations for teacher review
+
+## Project Structure
+
+```
+app/
+├── components/           # React components
+│   ├── TeacherDashboard.tsx    # Main teacher interface
+│   ├── Sidebar.tsx             # Navigation sidebar
+│   ├── LessonGrid.tsx          # Lesson cards display
+│   ├── CreateLessonForm.tsx    # Lesson creation form
+│   ├── LessonDetailSidebar.tsx # Lesson details panel
+│   ├── TeacherView.tsx         # Teacher viewing modes
+│   ├── PDFViewer.tsx           # PDF rendering component
+│   ├── AnnotationPanel.tsx     # Annotation management
+│   ├── StudentViewPanel.tsx    # Student progress tracking
+│   └── StudentView.tsx         # Student reading interface
+├── student/              # Student-specific pages
+│   └── page.tsx          # Student reading page
+├── layout.tsx            # Root layout
+└── page.tsx              # Main teacher dashboard
+```
+
+## Development
+
+### Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+
+### Key Components
+
+- **TeacherDashboard**: Main application state management and routing
+- **PDFViewer**: Canvas-based PDF rendering with highlight overlay
+- **TeacherView**: Multi-mode interface for teachers to review student work
+- **StudentView**: Interactive reading interface for students
+
+## Future Enhancements
+
+- **Real PDF Integration**: Replace mock PDF rendering with actual PDF.js implementation
+- **Database Integration**: Add persistent storage for lessons, sessions, and annotations
+- **Authentication**: Implement user authentication and authorization
+- **Real-time Updates**: WebSocket integration for live collaboration
+- **Advanced Analytics**: Detailed reporting on student reading patterns
+- **Mobile Support**: Responsive design for tablet and mobile devices
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable
+5. Submit a pull request
+
+## License
+
+This project is licensed under the MIT License.
