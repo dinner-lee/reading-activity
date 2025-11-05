@@ -203,17 +203,19 @@ export default function LessonDetailSidebar({ lesson, onClose, onStartSession, o
                 <div className="flex gap-2 mt-3">
                   <button
                     onClick={() => handleStartSession(session)}
-                    className="flex-1 flex items-center justify-center gap-1 px-3 py-2 text-sm bg-blue-600 text-white rounded hover:bg-blue-700"
+                    className="flex-1 flex items-center justify-center gap-1 px-3 py-2 text-sm bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
                   >
                     <Play className="h-4 w-4" />
-                    Start Session
+                    <span>Start Session</span>
                   </button>
                   
                   <button
                     onClick={() => handleStudentView(session)}
-                    className="flex items-center justify-center gap-1 px-3 py-2 text-sm bg-gray-600 text-white rounded hover:bg-gray-700"
+                    className="flex items-center justify-center gap-1 px-3 py-2 text-sm bg-gray-600 text-white rounded hover:bg-gray-700 transition-colors whitespace-nowrap"
+                    title="View as Student"
                   >
-                    <Eye className="h-4 w-4" />
+                    <ExternalLink className="h-4 w-4" />
+                    <span>Link</span>
                   </button>
                 </div>
               </div>
