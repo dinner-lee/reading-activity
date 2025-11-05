@@ -56,7 +56,8 @@ export default function PDFThumbnail({ fileUrl, className = '' }: PDFThumbnailPr
         // Render page to canvas
         const renderContext = {
           canvasContext: context,
-          viewport: viewport
+          viewport: viewport,
+          canvas: canvas
         };
 
         await page.render(renderContext).promise;
